@@ -1,0 +1,29 @@
+<div ng-init="init()" class="container col-md-8 col-md-offset-2 text-center">
+	<form>
+	<table class="table table-hover table-striped table-bordered">
+		<tr>
+			<th class="text-center">Kategorija</th>
+			<td>{{ad.kategorija}}</td>
+		</tr>
+		<tr>
+			<th class="text-center">Naslov</th>
+			<td><input type="text" class="col-md-12" ng-model="ad.naslov"/></td>
+		</tr>
+		<tr>
+			<th class="text-center">Tekst</th>
+			<td><textarea class="form-control" rows="3" ng-model="ad.tekst"></textarea></td>
+		</tr>
+		<tr>
+			<th class="text-center">Datum isteka</th>
+			<td>  <p class="input-group">
+          <input type="text" class="form-control" uib-datepicker-popup="{{format}}" ng-model="dt" is-open="popup1.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" alt-input-formats="altInputFormats" />
+          <span class="input-group-btn" ng-model="ad.istice=dt">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+        </p></tr>
+        <tr>
+        <td colspan="2"><button ng-click="save()">Submit</button></td>
+        </tr>
+	</table>
+	</form>
+</div>

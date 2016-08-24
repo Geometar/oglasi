@@ -1,0 +1,30 @@
+<div class="container col-md-10 col-md-offset-2 text-center" ng-init="init()">
+	<form class="form-horizontal">
+		<div class="form-group">
+			<label for="inputEmail3" class="col-sm-2 control-label">Stara lozina</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" id="inputEmail3"
+					placeholder="Password" ng-model="promenaLozinke.staraLozinka">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">Nova Lozinka</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" ng-model="promenaLozinke.novaLozinka" id="inputPassword3"
+					placeholder="Password">
+			</div>
+		</div>
+		<div class="form-group">
+			<label for="inputPassword3" class="col-sm-2 control-label">Ponovi Lozinku</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control"  ng-model="promenaLozinke.ponovoLozinka" id="inputPassword3"
+					placeholder="Password">
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" ng-click="put(staraLozinka, novaLozinka, ponovoLozinka)" class="btn btn-default">Promeni</button>
+			</div>
+		</div>
+	</form>
+</div>

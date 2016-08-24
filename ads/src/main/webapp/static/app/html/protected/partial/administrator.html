@@ -1,0 +1,21 @@
+<div ng-init="getAll()">
+	<table class="table table-hover table-striped">
+			<tr>
+				<td class="col-md-1">Id</td>
+				<td class="col-md-2">Username</td>
+				<td class="col-md-3">Email</td>
+				<td class="col-md-2">Number</td>
+				<td class="col-md-1">Role</td>
+				<td class="col-md-3">Akcije</td>
+			<tr ng-repeat="user in users">
+				<td class="col-md-1">{{user.id}}</td>
+				<td class="col-md-2">{{user.username}}</td>
+				<td class="col-md-2">{{user.email}}</td>
+				<td class="col-md-1">{{user.number}}</td>
+				<td class="col-md-1">{{user.role}}</td>
+				<td class="col-md-3"><button ng-click="delete(user.id); getAll()" class="btn btn-danger btn-xs">Obrisi</button>
+					<a href="/#/administrator/edit/{{user.id}}" class="btn btn-primary btn-xs">Edit</a>
+				</td>
+			</tr>
+		</table>
+</div>

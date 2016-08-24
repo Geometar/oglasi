@@ -1,0 +1,91 @@
+<div ng-init="init(); getAll()">
+	<div class="col-md-12 col-md-offset-0">
+		<h2 class="text-center" ng-show="ads">Pregled oglasa za
+			kategoriju - {{nazivKategorije}}</h2>
+		<p></p>
+		<div class="form-group col-sm-10">
+			<label for="inputEmail3" class="col-sm-5 control-label"><h4>Filtriraj
+					oglase da vaze min do: </h4></label>
+			<div>
+				<p class="input-group">
+					<input type="text" class="form-control"
+						uib-datepicker-popup="{{format}}" ng-model="dt"
+						is-open="popup1.opened" datepicker-options="dateOptions"
+						ng-required="true" close-text="Close"
+						alt-input-formats="altInputFormats" ng-change="getAll()" /> <span
+						class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open1()">
+							<i class="glyphicon glyphicon-calendar"></i>
+						</button>
+					</span>
+				</p>
+			</div>
+		</div>
+		<p></p>
+		<table class="table table-bordered">
+			<tr>
+				<td>
+					<div class="form-group col-sm-12">
+						<label for="inputEmail3" class="col-sm-3 control-label"><h4>Pretraga
+							</h4></label>
+						<div class="col-sm-6">
+							<input type="text" class="form-control" ng-change="getAll()" ng-model="search" />
+						</div>
+					</div>
+					<div>
+						<button ng-click="getAll()" class="btn btn-info col-md-offset-5">Enter</button>
+					</div>
+				</td>
+		</table>
+		<table class="table table-hover table-striped">
+			<tr>
+				<td class="col-md-1"><button
+						ng-click="sortBy = 'id'; orderBy = !orderBy; getAll()"
+						class="btn btn-default btn-sm">
+						id <span ng-show="sortBy == 'id' && !orderBy"
+							class="glyphicon glyphicon-triangle-top"></span> <span
+							ng-show="sortBy == 'id' && orderBy"
+							class="glyphicon glyphicon-triangle-bottom"></span>
+					</button></td>
+				<td class="col-md-2">Kategorija</td>
+				<td class="col-md-3">Naslov</td>
+				<td class="col-md-2"><button
+						ng-click="sortBy = 'postavljen'; orderBy = !orderBy; getAll()"
+						class="btn btn-default btn-sm">
+						Postavljen <span ng-show="sortBy == 'postavljen' && !orderBy"
+							class="glyphicon glyphicon-triangle-top"></span> <span
+							ng-show="sortBy == 'postavljen' && orderBy"
+							class="glyphicon glyphicon-triangle-bottom"></span>
+					</button></td>
+				<td class="col-md-1"><button
+						ng-click="sortBy = 'istice'; orderBy = !orderBy; getAll()"
+						class="btn btn-default btn-sm">
+						Istice <span ng-show="sortBy == 'istice' && !orderBy"
+							class="glyphicon glyphicon-triangle-top"></span> <span
+							ng-show="sortBy == 'istice' && orderBy"
+							class="glyphicon glyphicon-triangle-bottom"></span>
+					</button></td>
+				<td class="col-md-1"><button
+						ng-click="sortBy = 'user.username'; orderBy = !orderBy; getAll()"
+						class="btn btn-default btn-sm">
+						Autor <span ng-show="sortBy == 'user.username' && !orderBy"
+							class="glyphicon glyphicon-triangle-top"></span> <span
+							ng-show="sortBy == 'user.username' && orderBy"
+							class="glyphicon glyphicon-triangle-bottom"></span>
+					</button></td>
+				<td class="col-md-3">Akcije</td>
+			</tr>
+			<tr ng-repeat="ad in ads">
+				<td class="col-md-1">{{ad.id}}</td>
+				<td class="col-md-2">{{ad.kategorijeOglasaDTO.naziv}}</td>
+				<td class="col-md-3">{{ad.naslov}}</td>
+				<td class="col-md-1">{{ad.postavljen | date:"yyyy-MM-dd"}}</td>
+				<td class="col-md-1">{{ad.istice | date:"yyyy-MM-dd"}}</td>
+				<td class="col-md-1">{{ad.userDTO.username}}</td>
+				<td class="col-md-3"><a href="/#/ad/{{ad.id}}" class="btn btn-primary btn-xs">Detalji</a>
+					<button ng-click="delete(ad.id);getAll()" class="btn btn-danger btn-xs">Delete</button></td>
+			</tr>
+		</table>
+		<a href="/#/{{nazivKategorije}}/postavi_oglas" class="btn btn-primary">Postavi Oglas</a>
+	</div>
+</div>

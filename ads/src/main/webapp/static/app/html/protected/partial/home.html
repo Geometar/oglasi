@@ -1,0 +1,30 @@
+<div ng-init="init(); getAll()">
+	<div class="col-md-8 col-md-offset-2">
+
+		<table class="table table-hover table-striped">
+			<tr>
+				<td>
+				<a href="/#/"
+					ng-click="sortBy = 'id'; orderBy = !orderBy; getAll()">#  
+					<span ng-show="sortBy == 'id' && !orderBy"
+						class="glyphicon glyphicon-triangle-top"></span> <span
+						ng-show="sortBy == 'id' && orderBy" class="glyphicon glyphicon-triangle-bottom"></span>
+				</a></td>
+				<td><a href="/#/"
+					ng-click="sortBy = 'naziv'; orderBy = !orderBy; getAll()">Name 
+					<span ng-show="sortBy == 'naziv' && !orderBy"
+						class="glyphicon glyphicon-triangle-top"></span> <span
+						ng-show="sortBy == 'naziv' && orderBy" class="glyphicon glyphicon-triangle-bottom"></span>
+				</a></td>
+				<td>Description</td>
+				<td>Action</td>
+			</tr>
+			<tr ng-repeat="categorie in categories">
+				<td class="col-md-1">{{categorie.id}}</td>
+				<td class="col-md-2">{{categorie.naziv}}</td>
+				<td class="col-md-2">{{categorie.opis}}</td>
+				<td class="col-md-1"><a href="/#/{{categorie.naziv}}" class="btn btn-info btn-xs">View</a></td>
+			</tr>
+		</table>
+	</div>
+</div>

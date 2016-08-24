@@ -1,0 +1,22 @@
+<div  class="container col-md-12 col-md-offset-0 text-center" ng-init="getAll()">
+<table class="table table-hover table-striped">
+			<tr>
+				<td class="col-md-1">Id</td>
+				<td class="col-md-2">Kategorija</td>
+				<td class="col-md-2">Naslov</td>
+				<td class="col-md-3">Tekst</td>
+				<td class="col-md-2">Postavljen</td>
+				<td class="col-md-3">Istice</td>
+				<td class="col-md-1">Obrisi</td>
+			</tr>
+			<tr ng-repeat="ad in ads">
+				<td class="col-md-1">{{ad.id}}</td>
+				<td class="col-md-2">{{ad.kategorijeOglasaDTO.naziv}}</td>
+				<td class="col-md-3">{{ad.naslov}}</td>
+				<td class="col-md-3">{{ad.tekst}}</td>
+				<td class="col-md-1">{{ad.postavljen | date:"yyyy-MM-dd"}}</td>
+				<td class="col-md-1">{{ad.istice | date:"yyyy-MM-dd"}}</td>
+				<td><button ng-click="delete(ad.id); getAll()" class="btn btn-primary btn-xs">Obrisi</button></td>
+			</tr>
+		</table>
+</div>
